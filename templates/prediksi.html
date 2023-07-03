@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Prediksi Curah Hujan</title>
+
+    <!-- Custom fonts for this template-->
+    <link
+      href="{{ url_for('static', filename='vendor/fontawesome-free/css/all.min.css') }}"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+      rel="stylesheet"
+    />
+
+    <!-- Custom styles for this template-->
+    <link
+      href="{{ url_for('static', filename='css/sb-admin-2.min.css') }}"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="bg-gradient-primary">
+    <div class="container">
+      <!-- Outer Row -->
+      <div class="row justify-content-center">
+        <div class="col-xl-10 col-lg-12 col-md-9">
+          <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+              <!-- Nested Row within Card Body -->
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="p-5">
+                    <div class="text-center">
+                      <h1 class="h4 text-gray-900 mb-2">
+                        Prediksi Curah Hujan
+                      </h1>
+                      <p class="mb-4">
+                        berikut adalah form untuk melakukan prediksi
+                      </p>
+                    </div>
+                    <form
+                      action="{{url_for('prediksi')}}"
+                      class="user"
+                      method="post"
+                    >
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          class="form-control form-control-user"
+                          id="minTemp"
+                          aria-describedby="minTemp"
+                          placeholder="minTemp"
+                          value=""
+                        />
+                      </div>
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          class="form-control form-control-user"
+                          id="maxTemp"
+                          aria-describedby="maxTemp"
+                          placeholder="maxTemp"
+                          value=""
+                        />
+                      </div>
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          class="form-control form-control-user"
+                          id="rainfall"
+                          aria-describedby="rainfall"
+                          placeholder="rainfall"
+                          value=""
+                        />
+                      </div>
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          class="form-control form-control-user"
+                          id="evaporation"
+                          aria-describedby="evaporation"
+                          placeholder="evaporation"
+                          value=""
+                        />
+                      </div>
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          class="form-control form-control-user"
+                          id="sunshine"
+                          aria-describedby="sunshine"
+                          placeholder="sunshine"
+                          value=""
+                        />
+                      </div>
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          class="form-control form-control-user"
+                          id="windGustDir"
+                          aria-describedby="windGustDir"
+                          placeholder="windGustDir"
+                          value=""
+                        />
+                      </div>
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          class="form-control form-control-user"
+                          id="windGustSpeed"
+                          aria-describedby="windGustSpeed"
+                          placeholder="windGustSpeed"
+                          value=""
+                        />
+                      </div>
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          class="form-control form-control-user"
+                          id="windDir9"
+                          aria-describedby="windDir9"
+                          placeholder="windDir9"
+                          value=""
+                        />
+                      </div>
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          class="form-control form-control-user"
+                          id="windDir3"
+                          aria-describedby="windDir3"
+                          placeholder="windDir3"
+                          value=""
+                        />
+                      </div>
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          class="form-control form-control-user"
+                          id="windSpeed9"
+                          aria-describedby="windSpeed9"
+                          placeholder="windSpeed9"
+                          value=""
+                        />
+                      </div>
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          class="form-control form-control-user"
+                          id="windSpeed3"
+                          aria-describedby="windSpeed3"
+                          placeholder="windSpeed3"
+                          value=""
+                        />
+                      </div>
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          class="form-control form-control-user"
+                          id="humid9"
+                          aria-describedby="humid9"
+                          placeholder="humid9"
+                          value=""
+                        />
+                      </div>
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          class="form-control form-control-user"
+                          id="humid3"
+                          aria-describedby="humid3"
+                          placeholder="humid3"
+                          value=""
+                        />
+                      </div>
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          class="form-control form-control-user"
+                          id="pressure9"
+                          aria-describedby="pressure9"
+                          placeholder="pressure9"
+                          value=""
+                        />
+                      </div>
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          class="form-control form-control-user"
+                          id="pressure3"
+                          aria-describedby="pressure3"
+                          placeholder="pressure3"
+                          value=""
+                        />
+                      </div>
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          class="form-control form-control-user"
+                          id="cloud9"
+                          aria-describedby="cloud9"
+                          placeholder="cloud9"
+                          value=""
+                        />
+                      </div>
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          class="form-control form-control-user"
+                          id="cloud3"
+                          aria-describedby="cloud3"
+                          placeholder="cloud3"
+                          value=""
+                        />
+                      </div>
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          class="form-control form-control-user"
+                          id="temp9"
+                          aria-describedby="temp9"
+                          placeholder="temp9"
+                          value=""
+                        />
+                      </div>
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          class="form-control form-control-user"
+                          id="temp3"
+                          aria-describedby="temp3"
+                          placeholder="temp3"
+                          value=""
+                        />
+                      </div>
+                      <div class="form-group">
+                        <button
+                          type="submit"
+                          class="btn btn-primary btn-user btn-block"
+                        >
+                          Lakukan Prediksi
+                        </button>
+                      </div>
+                      <!-- <a
+                        href="login.html"
+                        class="btn btn-primary btn-user btn-block"
+                      >
+                        Prediksi
+                      </a> -->
+                    </form>
+                    <hr />
+                  </div>
+                </div>
+
+                <div class="col-lg-6 d-none d-lg-block">
+                  <div class="p-5">
+                    <div class="text-center">
+                      <h1 class="h4 text-gray-900 mb-2">Hasil Prediksi</h1>
+                      <h1 class="h4 text-gray-900 mb-2">
+                        {{ prediction_text }}
+                      </h1>
+                    </div>
+                  </div>
+                </div>
+                <hr />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/sb-admin-2.min.js') }}"></script>
+  </body>
+</html>
