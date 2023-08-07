@@ -1,8 +1,8 @@
-afi-env
-.ipnyb_checkpoints
-backup
+afi-env/
+.ipnyb_checkpoints/
+backup/
 *.ipnyb
-startbootstrap-sb-admin-2-gh-pages
+startbootstrap-sb-admin-2-gh-pages/
 *.zip
 weatherAUS - Copy.csv
 weatherAUS1000.csv
