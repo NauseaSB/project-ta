@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Prediksi Curah Hujan</title>
+
+  <!-- Custom fonts for this template-->
+  <link
+          href="{{ url_for('static', filename='vendor/fontawesome-free/css/all.min.css') }}"
+          rel="stylesheet"
+          type="text/css"
+  />
+  <link
+          href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet"
+  />
+  <link href="{{ url_for('static', filename='vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/sb-admin-2.min.css') }}" rel="stylesheet">
+</head>
+
+<body id="page-top">
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+  {% include 'sidebar.html' %}
+
+  <!-- Content Wrapper -->
+  <div id="content-wrapper" class="d-flex flex-column">
+
+    <!-- Main Content -->
+    <div id="content">
+      <!-- Begin Page Content -->
+      <!-- Begin Page Content -->
+      <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <center>
+          <h1 class="h3 mb-2 text-gray-800">Table Data</h1>
+        </center>
+
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+          <div class="card-header py-3">
+            <h4 class="m-0 font-weight-bold text-primary">Get data from : {{data_path}}</h4>
+            <h4 class="m-0 font-weight-bold text-primary">Jumlah data : {{sum_data}}</h4>
+            <form action="{{url_for('list_data')}}" method="post">
+              <div class="row" style="margin-top:50px">
+                <div class="col-md-2">
+                  <h4>Masukan jumlah row : </h4>
+                </div>
+                <div class="col-md-2">
+                  <input class="form" type="int" name="page" id="">
+                </div>
+                <div class="col-md-2">
+                  <button type="submit" class="btn-primary">submit</button>
+                </div>
+              </div>
+            </form>
+            <form action="{{url_for('upload_file')}}" method="post" enctype=multipart/form-data>
+              <div class="row" style="margin-top:50px">
+                <div class="col-md-2">
+                  <h4>Masukan csv file : </h4>
+                </div>
+                <div class="col-md-2">
+                  <input class="form" type="file" name="file" id="">
+                </div>
+                <div class="col-md-2">
+                  <button type="submit" class="btn-primary">submit</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="card-body">
+            <h4 class="m-0 font-weight-bold text-primary">List Data of {{row}} row from csv file with {{sum_data}} row data</h4>
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>No.</th>
+                    {% for column in data[0] %}
+                    <th>{{ column }}</th>
+                    {% endfor %}
+                  </tr>
+                </thead>
+                <tfoot>
+                <tr>
+                  <th>No.</th>
+                  {% for column in data[0] %}
+                  <th>{{ column }}</th>
+                  {% endfor %}
+                </tr>
+                </tfoot>
+                <tbody>
+                {% for row in data[1:] %}
+                <tr>
+                  <td>{{ loop.index }}</td>
+                  {% for value in row %}
+                  <td>{{ value }}</td>
+                  {% endfor %}
+                </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- /.container-fluid -->
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Sistem Prediksi Curah Hujan</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+  <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
+  <script>
+    $(document).ready(function() {
+        $('#dataTable').DataTable();
+    });
+</script>
+  <script src="{{ url_for('static', filename='vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/datatables/jquery.dataTables.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/sb-admin-2.min.js') }}"></script>
+</body>
+
+</html>

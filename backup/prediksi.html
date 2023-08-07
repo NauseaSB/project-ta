@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Prediksi Curah Hujan</title>
+
+  <!-- Custom fonts for this template-->
+  <link
+          href="{{ url_for('static', filename='vendor/fontawesome-free/css/all.min.css') }}"
+          rel="stylesheet"
+          type="text/css"
+  />
+  <link
+          href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet"
+  />
+
+  <!-- Custom styles for this template-->
+  <link
+          href="{{ url_for('static', filename='css/sb-admin-2.min.css') }}"
+          rel="stylesheet"
+  />
+</head>
+
+<body id="page-top">
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+  {% include 'sidebar.html' %}
+
+  <!-- Content Wrapper -->
+  <div id="content-wrapper" class="d-flex flex-column">
+
+    <!-- Main Content -->
+    <div id="content">
+      <!-- Begin Page Content -->
+      <div class="container-fluid">
+        <div class="container">
+          <!-- Outer Row -->
+          <div class="row justify-content-center">
+            <div class="col-lg-12 col-md-9">
+              <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body p-0">
+                  <!-- Nested Row within Card Body -->
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="p-5">
+                        <div class="text-center">
+                          <h1 class="h4 text-gray-900 mb-2">
+                            Prediksi Curah Hujan
+                          </h1>
+                          <p class="mb-4">
+                            berikut adalah form untuk melakukan prediksi
+                          </p>
+                        </div>
+                        <form action="{{url_for('proses_prediksi')}}" class="user" method="post">
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="col-md-2">
+                                <span class="header">Temperatur Minimum</span>
+                              </div>
+                              <div class="col-md-10">
+                                <input type="text" class="form-control form-control-user" name="minTemp" aria-describedby="minTemp" placeholder="minTemp" value=""/>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="col-md-2">
+                                <span class="header">Temperatur Maksimal</span>
+                              </div>
+                              <div class="col-md-10">
+                                <input type="text" class="form-control form-control-user" name="maxTemp" aria-describedby="maxTemp" placeholder="maxTemp" value=""/>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="col-md-2">
+                                <span class="header">Curah Hujan</span>
+                              </div>
+                              <div class="col-md-10">
+                                <input type="text" class="form-control form-control-user" name="rainfall" aria-describedby="rainfall" placeholder="rainfall" value=""/>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="col-md-2">
+                                <span class="header">Penguapan</span>
+                              </div>
+                              <div class="col-md-10">
+                                <input type="text" class="form-control form-control-user" name="evaporation" aria-describedby="evaporation" placeholder="evaporation" value=""/>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="col-md-2">
+                                <span class="header">Cahaya Matahari</span>
+                              </div>
+                              <div class="col-md-10">
+                                <input type="text" class="form-control form-control-user" name="sunshine" aria-describedby="sunshine" placeholder="sunshine" value=""/>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="col-md-2">
+                                <span class="header">Arah Mata Angin</span>
+                              </div>
+                              <div class="col-md-10">
+                                <select class="" name="windGustDir" id="windGustDir">
+                                  <option value="E">East</option>
+                                  <option value="ENE">East-northeast</option>
+                                  <option value="ESE">East-southeast</option>
+                                  <option value="N">North</option>
+                                  <option value="NE">Northeast</option>
+                                  <option value="NNE">North-northeast</option>
+                                  <option value="NNW">North-northwest</option>
+                                  <option value="NW">Northwest</option>
+                                  <option value="S">South</option>
+                                  <option value="SE">Southeast</option>
+                                  <option value="SSE">South-southeast</option>
+                                  <option value="SSW">South-southwest</option>
+                                  <option value="SW">Southwest</option>
+                                  <option value="W">West</option>
+                                  <option value="WNW">West-northwest</option>
+                                  <option value="WSW">West-southwest</option>
+                                </select>
+                                <!-- <input type="text" class="form-control form-control-user" name="windGustDir" aria-describedby="windGustDir" placeholder="windGustDir" value=""/> -->
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="col-md-2">
+                                <span class="header">Kecepatan Angin</span>
+                              </div>
+                              <div class="col-md-10">
+                                <input type="text" class="form-control form-control-user" name="windGustSpeed" aria-describedby="windGustSpeed" placeholder="windGustSpeed" value=""/>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="col-md-2">
+                                <span class="header">Arah Mata Angin Jam 9</span>
+                              </div>
+                              <div class="col-md-10">
+                                <select class="" name="windDir9" id="windDir9">
+                                  <option value="E">East</option>
+                                  <option value="ENE">East-northeast</option>
+                                  <option value="ESE">East-southeast</option>
+                                  <option value="N">North</option>
+                                  <option value="NE">Northeast</option>
+                                  <option value="NNE">North-northeast</option>
+                                  <option value="NNW">North-northwest</option>
+                                  <option value="NW">Northwest</option>
+                                  <option value="S">South</option>
+                                  <option value="SE">Southeast</option>
+                                  <option value="SSE">South-southeast</option>
+                                  <option value="SSW">South-southwest</option>
+                                  <option value="SW">Southwest</option>
+                                  <option value="W">West</option>
+                                  <option value="WNW">West-northwest</option>
+                                  <option value="WSW">West-southwest</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="col-md-2">
+                                <span class="header">Arah Mata Angin Jam 3</span>
+                              </div>
+                              <div class="col-md-10">
+                                <select class="" name="windDir3" id="windDir3">
+                                  <option value="E">East</option>
+                                  <option value="ENE">East-northeast</option>
+                                  <option value="ESE">East-southeast</option>
+                                  <option value="N">North</option>
+                                  <option value="NE">Northeast</option>
+                                  <option value="NNE">North-northeast</option>
+                                  <option value="NNW">North-northwest</option>
+                                  <option value="NW">Northwest</option>
+                                  <option value="S">South</option>
+                                  <option value="SE">Southeast</option>
+                                  <option value="SSE">South-southeast</option>
+                                  <option value="SSW">South-southwest</option>
+                                  <option value="SW">Southwest</option>
+                                  <option value="W">West</option>
+                                  <option value="WNW">West-northwest</option>
+                                  <option value="WSW">West-southwest</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="col-md-2">
+                                <span class="header">Kecepatan Angin Jam 9</span>
+                              </div>
+                              <div class="col-md-10">
+                                <input type="text" class="form-control form-control-user" name="windSpeed9" aria-describedby="windSpeed9" placeholder="windSpeed9" value=""/>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="col-md-2">
+                                <span class="header">Kecepatan Angin Jam 3</span>
+                              </div>
+                              <div class="col-md-10">
+                                <input type="text" class="form-control form-control-user" name="windSpeed3" aria-describedby="windSpeed3" placeholder="windSpeed3" value=""/>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="col-md-2">
+                                <span class="header">Kelembapan Jam 9</span>
+                              </div>
+                              <div class="col-md-10">
+                                <input type="text" class="form-control form-control-user" name="humid9" aria-describedby="humid9" placeholder="humid9" value=""/>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="col-md-2">
+                                <span class="header">Kelembapan Jam 3</span>
+                              </div>
+                              <div class="col-md-10">
+                                <input type="text" class="form-control form-control-user" name="humid3" aria-describedby="humid3" placeholder="humid3" value=""/>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="col-md-2">
+                                <span class="header">Tekanan Udara Jam 9</span>
+                              </div>
+                              <div class="col-md-10">
+                                <input type="text" class="form-control form-control-user" name="pressure9" aria-describedby="pressure9" placeholder="pressure9" value=""/>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="col-md-2">
+                                <span class="header">Tekanan Udara Jam 3</span>
+                              </div>
+                              <div class="col-md-10">
+                                <input type="text" class="form-control form-control-user" name="pressure3" aria-describedby="pressure3" placeholder="pressure3" value=""/>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="col-md-2">
+                                <span class="header">Fraksi Langit Terhalang Awan Jam 9</span>
+                              </div>
+                              <div class="col-md-10">
+                                <input type="text" class="form-control form-control-user" name="cloud9" aria-describedby="cloud9" placeholder="cloud9" value=""/>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="col-md-2">
+                                <span class="header">Fraksi Langit Terhalang Awan Jam 3</span>
+                              </div>
+                              <div class="col-md-10">
+                                <input type="text" class="form-control form-control-user" name="cloud3" aria-describedby="cloud3" placeholder="cloud3" value=""/>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="col-md-2">
+                                <span class="header">Suhu Jam 9</span>
+                              </div>
+                              <div class="col-md-10">
+                                <input type="text" class="form-control form-control-user" name="temp9" aria-describedby="temp9" placeholder="temp9" value=""/>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="col-md-2">
+                                <span class="header">Suhu Jam 3</span>
+                              </div>
+                              <div class="col-md-10">
+                                <input type="text" class="form-control form-control-user" name="temp3" aria-describedby="temp3" placeholder="temp3" value=""/>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="col-md-2">
+                                <span class="header">Hujan Hari Ini</span>
+                              </div>
+                              <div class="col-md-10">
+                                <input type="text" class="form-control form-control-user" name="rainToday" aria-describedby="rainToday" placeholder="rainToday" value=""/>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="col-md-2">
+                                <span class="header">Lokasi</span>
+                              </div>
+                              <div class="col-md-10">
+                                <input type="text" class="form-control form-control-user" name="location" aria-describedby="location" placeholder="location" value=""/>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <button
+                                    type="submit"
+                                    class="btn btn-primary btn-user btn-block"
+                            >
+                              Lakukan Prediksi
+                            </button>
+                          </div>
+                          <!-- <a
+                            href="login.html"
+                            class="btn btn-primary btn-user btn-block"
+                          >
+                            Prediksi
+                          </a> -->
+                        </form>
+                        <hr />
+                      </div>
+                    </div>
+                    <hr />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Sistem Prediksi Curah Hujan</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+       aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/sb-admin-2.min.js') }}"></script>
+
+</body>
+
+</html>
