@@ -64,92 +64,322 @@
                         </div>
                         <form action="{{url_for('proses_prediksi')}}" class="user" method="post">
                           <div class="form-group">
-                            <input type="text" class="form-control form-control-user" name="minTemp" aria-describedby="minTemp" placeholder="minTemp" value=""/>
+                            <div class="row">
+                              <div class="col-md-2">
+                                <span class="header">Temperatur Minimum</span>
+                              </div>
+                              <div class="col-md-10">
+                                <input type="text" class="form-control form-control-user" name="minTemp" aria-describedby="minTemp" placeholder="minTemp" value=""/>
+                              </div>
+                            </div>
                           </div>
                           <div class="form-group">
-                            <input type="text" class="form-control form-control-user" name="maxTemp" aria-describedby="maxTemp" placeholder="maxTemp" value=""/>
+                            <div class="row">
+                              <div class="col-md-2">
+                                <span class="header">Temperatur Maksimal</span>
+                              </div>
+                              <div class="col-md-10">
+                                <input type="text" class="form-control form-control-user" name="maxTemp" aria-describedby="maxTemp" placeholder="maxTemp" value=""/>
+                              </div>
+                            </div>
                           </div>
                           <div class="form-group">
-                            <input type="text" class="form-control form-control-user" name="rainfall" aria-describedby="rainfall" placeholder="rainfall" value=""
-                            />
+                            <div class="row">
+                              <div class="col-md-2">
+                                <span class="header">Curah Hujan</span>
+                              </div>
+                              <div class="col-md-10">
+                                <input type="text" class="form-control form-control-user" name="rainfall" aria-describedby="rainfall" placeholder="rainfall" value=""/>
+                              </div>
+                            </div>
                           </div>
                           <div class="form-group">
-                            <input type="text" class="form-control form-control-user" name="evaporation" aria-describedby="evaporation" placeholder="evaporation" value=""
-                            />
+                            <div class="row">
+                              <div class="col-md-2">
+                                <span class="header">Penguapan</span>
+                              </div>
+                              <div class="col-md-10">
+                                <input type="text" class="form-control form-control-user" name="evaporation" aria-describedby="evaporation" placeholder="evaporation" value=""/>
+                              </div>
+                            </div>
                           </div>
                           <div class="form-group">
-                            <input type="text" class="form-control form-control-user" name="sunshine" aria-describedby="sunshine" placeholder="sunshine" value=""
-                            />
+                            <div class="row">
+                              <div class="col-md-2">
+                                <span class="header">Cahaya Matahari</span>
+                              </div>
+                              <div class="col-md-10">
+                                <input type="text" class="form-control form-control-user" name="sunshine" aria-describedby="sunshine" placeholder="sunshine" value=""/>
+                              </div>
+                            </div>
                           </div>
                           <div class="form-group">
-                            <input type="text" class="form-control form-control-user" name="windGustDir" aria-describedby="windGustDir" placeholder="windGustDir" value=""
-                            />
+                            <div class="row">
+                              <div class="col-md-2">
+                                <span class="header">Arah Mata Angin</span>
+                              </div>
+                              <div class="col-md-10">
+                                <select class="" name="windGustDir" id="windGustDir">
+                                  <option value="E">East</option>
+                                  <option value="ENE">East-northeast</option>
+                                  <option value="ESE">East-southeast</option>
+                                  <option value="N">North</option>
+                                  <option value="NE">Northeast</option>
+                                  <option value="NNE">North-northeast</option>
+                                  <option value="NNW">North-northwest</option>
+                                  <option value="NW">Northwest</option>
+                                  <option value="S">South</option>
+                                  <option value="SE">Southeast</option>
+                                  <option value="SSE">South-southeast</option>
+                                  <option value="SSW">South-southwest</option>
+                                  <option value="SW">Southwest</option>
+                                  <option value="W">West</option>
+                                  <option value="WNW">West-northwest</option>
+                                  <option value="WSW">West-southwest</option>
+                                </select>
+                                <!-- <input type="text" class="form-control form-control-user" name="windGustDir" aria-describedby="windGustDir" placeholder="windGustDir" value=""/> -->
+                              </div>
+                            </div>
                           </div>
                           <div class="form-group">
-                            <input type="text" class="form-control form-control-user" name="windGustSpeed" aria-describedby="windGustSpeed" placeholder="windGustSpeed" value=""
-                            />
+                            <div class="row">
+                              <div class="col-md-2">
+                                <span class="header">Kecepatan Angin</span>
+                              </div>
+                              <div class="col-md-10">
+                                <input type="text" class="form-control form-control-user" name="windGustSpeed" aria-describedby="windGustSpeed" placeholder="windGustSpeed" value=""/>
+                              </div>
+                            </div>
                           </div>
                           <div class="form-group">
-                            <input type="text" class="form-control form-control-user" name="windDir9" aria-describedby="windDir9" placeholder="windDir9" value=""
-                            />
+                            <div class="row">
+                              <div class="col-md-2">
+                                <span class="header">Arah Mata Angin Jam 9</span>
+                              </div>
+                              <div class="col-md-10">
+                                <select class="" name="windDir9" id="windDir9">
+                                  <option value="E">East</option>
+                                  <option value="ENE">East-northeast</option>
+                                  <option value="ESE">East-southeast</option>
+                                  <option value="N">North</option>
+                                  <option value="NE">Northeast</option>
+                                  <option value="NNE">North-northeast</option>
+                                  <option value="NNW">North-northwest</option>
+                                  <option value="NW">Northwest</option>
+                                  <option value="S">South</option>
+                                  <option value="SE">Southeast</option>
+                                  <option value="SSE">South-southeast</option>
+                                  <option value="SSW">South-southwest</option>
+                                  <option value="SW">Southwest</option>
+                                  <option value="W">West</option>
+                                  <option value="WNW">West-northwest</option>
+                                  <option value="WSW">West-southwest</option>
+                                </select>
+                              </div>
+                            </div>
                           </div>
                           <div class="form-group">
-                            <input type="text" class="form-control form-control-user" name="windDir3" aria-describedby="windDir3" placeholder="windDir3" value=""
-                            />
+                            <div class="row">
+                              <div class="col-md-2">
+                                <span class="header">Arah Mata Angin Jam 3</span>
+                              </div>
+                              <div class="col-md-10">
+                                <select class="" name="windDir3" id="windDir3">
+                                  <option value="E">East</option>
+                                  <option value="ENE">East-northeast</option>
+                                  <option value="ESE">East-southeast</option>
+                                  <option value="N">North</option>
+                                  <option value="NE">Northeast</option>
+                                  <option value="NNE">North-northeast</option>
+                                  <option value="NNW">North-northwest</option>
+                                  <option value="NW">Northwest</option>
+                                  <option value="S">South</option>
+                                  <option value="SE">Southeast</option>
+                                  <option value="SSE">South-southeast</option>
+                                  <option value="SSW">South-southwest</option>
+                                  <option value="SW">Southwest</option>
+                                  <option value="W">West</option>
+                                  <option value="WNW">West-northwest</option>
+                                  <option value="WSW">West-southwest</option>
+                                </select>
+                              </div>
+                            </div>
                           </div>
                           <div class="form-group">
-                            <input type="text" class="form-control form-control-user" name="windSpeed9" aria-describedby="windSpeed9" placeholder="windSpeed9" value=""
-                            />
+                            <div class="row">
+                              <div class="col-md-2">
+                                <span class="header">Kecepatan Angin Jam 9</span>
+                              </div>
+                              <div class="col-md-10">
+                                <input type="text" class="form-control form-control-user" name="windSpeed9" aria-describedby="windSpeed9" placeholder="windSpeed9" value=""/>
+                              </div>
+                            </div>
                           </div>
                           <div class="form-group">
-                            <input type="text" class="form-control form-control-user" name="windSpeed3" aria-describedby="windSpeed3" placeholder="windSpeed3" value=""
-                            />
+                            <div class="row">
+                              <div class="col-md-2">
+                                <span class="header">Kecepatan Angin Jam 3</span>
+                              </div>
+                              <div class="col-md-10">
+                                <input type="text" class="form-control form-control-user" name="windSpeed3" aria-describedby="windSpeed3" placeholder="windSpeed3" value=""/>
+                              </div>
+                            </div>
                           </div>
                           <div class="form-group">
-                            <input type="text" class="form-control form-control-user" name="humid9" aria-describedby="humid9" placeholder="humid9" value=""
-                            />
+                            <div class="row">
+                              <div class="col-md-2">
+                                <span class="header">Kelembapan Jam 9</span>
+                              </div>
+                              <div class="col-md-10">
+                                <input type="text" class="form-control form-control-user" name="humid9" aria-describedby="humid9" placeholder="humid9" value=""/>
+                              </div>
+                            </div>
                           </div>
                           <div class="form-group">
-                            <input type="text" class="form-control form-control-user" name="humid3" aria-describedby="humid3" placeholder="humid3" value=""
-                            />
+                            <div class="row">
+                              <div class="col-md-2">
+                                <span class="header">Kelembapan Jam 3</span>
+                              </div>
+                              <div class="col-md-10">
+                                <input type="text" class="form-control form-control-user" name="humid3" aria-describedby="humid3" placeholder="humid3" value=""/>
+                              </div>
+                            </div>
                           </div>
                           <div class="form-group">
-                            <input type="text" class="form-control form-control-user" name="pressure9" aria-describedby="pressure9" placeholder="pressure9" value=""
-                            />
+                            <div class="row">
+                              <div class="col-md-2">
+                                <span class="header">Tekanan Udara Jam 9</span>
+                              </div>
+                              <div class="col-md-10">
+                                <input type="text" class="form-control form-control-user" name="pressure9" aria-describedby="pressure9" placeholder="pressure9" value=""/>
+                              </div>
+                            </div>
                           </div>
                           <div class="form-group">
-                            <input type="text" class="form-control form-control-user" name="pressure3" aria-describedby="pressure3" placeholder="pressure3" value=""
-                            />
+                            <div class="row">
+                              <div class="col-md-2">
+                                <span class="header">Tekanan Udara Jam 3</span>
+                              </div>
+                              <div class="col-md-10">
+                                <input type="text" class="form-control form-control-user" name="pressure3" aria-describedby="pressure3" placeholder="pressure3" value=""/>
+                              </div>
+                            </div>
                           </div>
                           <div class="form-group">
-                            <input type="text" class="form-control form-control-user" name="cloud9" aria-describedby="cloud9" placeholder="cloud9" value=""
-                            />
+                            <div class="row">
+                              <div class="col-md-2">
+                                <span class="header">Fraksi Langit Terhalang Awan Jam 9</span>
+                              </div>
+                              <div class="col-md-10">
+                                <input type="text" class="form-control form-control-user" name="cloud9" aria-describedby="cloud9" placeholder="cloud9" value=""/>
+                              </div>
+                            </div>
                           </div>
                           <div class="form-group">
-                            <input type="text" class="form-control form-control-user" name="cloud3" aria-describedby="cloud3" placeholder="cloud3" value=""
-                            />
+                            <div class="row">
+                              <div class="col-md-2">
+                                <span class="header">Fraksi Langit Terhalang Awan Jam 3</span>
+                              </div>
+                              <div class="col-md-10">
+                                <input type="text" class="form-control form-control-user" name="cloud3" aria-describedby="cloud3" placeholder="cloud3" value=""/>
+                              </div>
+                            </div>
                           </div>
                           <div class="form-group">
-                            <input type="text" class="form-control form-control-user" name="temp9" aria-describedby="temp9" placeholder="temp9" value=""
-                            />
+                            <div class="row">
+                              <div class="col-md-2">
+                                <span class="header">Suhu Jam 9</span>
+                              </div>
+                              <div class="col-md-10">
+                                <input type="text" class="form-control form-control-user" name="temp9" aria-describedby="temp9" placeholder="temp9" value=""/>
+                              </div>
+                            </div>
                           </div>
                           <div class="form-group">
-                            <input type="text" class="form-control form-control-user" name="temp3" aria-describedby="temp3" placeholder="rainToday" value=""
-                            />
+                            <div class="row">
+                              <div class="col-md-2">
+                                <span class="header">Suhu Jam 3</span>
+                              </div>
+                              <div class="col-md-10">
+                                <input type="text" class="form-control form-control-user" name="temp3" aria-describedby="temp3" placeholder="temp3" value=""/>
+                              </div>
+                            </div>
                           </div>
                           <div class="form-group">
-                            <input type="text" class="form-control form-control-user" name="rainToday" aria-describedby="temp3" placeholder="temp3" value=""
-                            />
+                            <div class="row">
+                              <div class="col-md-2">
+                                <span class="header">Hujan Hari Ini</span>
+                              </div>
+                              <div class="col-md-10">
+                                <input type="text" class="form-control form-control-user" name="rainToday" aria-describedby="rainToday" placeholder="rainToday" value=""/>
+                              </div>
+                            </div>
                           </div>
                           <div class="form-group">
-                            <input type="text" class="form-control form-control-user" name="location" aria-describedby="temp3" placeholder="location" value=""
-                            />
+                            <div class="row">
+                              <div class="col-md-2">
+                                <span class="header">Lokasi</span>
+                              </div>
+                              <div class="col-md-10">
+                                <select class="" name="location" id="location">
+                                  <option value="Albury">Albury</option>
+                                  <option value="BadgerysCreek">BadgerysCreek</option>
+                                  <option value="Cobar">Cobar</option>
+                                  <option value="CoffsHarbour">CoffsHarbour</option>
+                                  <option value="Moree">Moree</option>
+                                  <option value="Newcastle">Newcastle</option>
+                                  <option value="NorahHead">NorahHead</option>
+                                  <option value="NorfolkIsland">NorfolkIsland</option>
+                                  <option value="Penrith">Penrith</option>
+                                  <option value="Richmond">Richmond</option>
+                                  <option value="Sydney">Sydney</option>
+                                  <option value="SydneyAirport">SydneyAirport</option>
+                                  <option value="WaggaWagga">WaggaWagga</option>
+                                  <option value="Williamtown">Williamtown</option>
+                                  <option value="Wollongong">Wollongong</option>
+                                  <option value="Canberra">Canberra</option>
+                                  <option value="Tuggeranong">Tuggeranong</option>
+                                  <option value="MountGinini">MountGinini</option>
+                                  <option value="Ballarat">Ballarat</option>
+                                  <option value="Bendigo">Bendigo</option>
+                                  <option value="Sale">Sale</option>
+                                  <option value="MelbourneAirport">MelbourneAirport</option>
+                                  <option value="Melbourne">Melbourne</option>
+                                  <option value="Mildura">Mildura</option>
+                                  <option value="Nhil">Nhil</option>
+                                  <option value="Portland">Portland</option>
+                                  <option value="Watsonia">Watsonia</option>
+                                  <option value="Dartmoor">Dartmoor</option>
+                                  <option value="Brisbane">Brisbane</option>
+                                  <option value="Cairns">Cairns</option>
+                                  <option value="GoldCoast">GoldCoast</option>
+                                  <option value="Townsville">Townsville</option>
+                                  <option value="Adelaide">Adelaide</option>
+                                  <option value="MountGambier">MountGambier</option>
+                                  <option value="Nuriootpa">Nuriootpa</option>
+                                  <option value="Woomera">Woomera</option>
+                                  <option value="Albany">Albany</option>
+                                  <option value="Witchcliffe">Witchcliffe</option>
+                                  <option value="PearceRAAF">PearceRAAF</option>
+                                  <option value="PerthAirport">PerthAirport</option>
+                                  <option value="Perth">Perth</option>
+                                  <option value="SalmonGums">SalmonGums</option>
+                                  <option value="Walpole">Walpole</option>
+                                  <option value="Hobart">Hobart</option>
+                                  <option value="Launceston">Launceston</option>
+                                  <option value="AliceSprings">AliceSprings</option>
+                                  <option value="Darwin">Darwin</option>
+                                  <option value="Katherine">Katherine</option>
+                                  <option value="Uluru">Uluru</option>
+                                </select>
+                              </div>
+                              <!-- <div class="col-md-10">
+                                <input type="text" class="form-control form-control-user" name="location" aria-describedby="location" placeholder="location" value=""/>
+                              </div> -->
+                            </div>
                           </div>
                           <div class="form-group">
-                            <button
-                                    type="submit"
-                                    class="btn btn-primary btn-user btn-block"
-                            >
+                            <button type="submit" class="btn btn-primary btn-user btn-block">
                               Lakukan Prediksi
                             </button>
                           </div>

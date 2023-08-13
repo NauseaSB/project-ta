@@ -42,9 +42,10 @@ def list_data():
         row = 100
 
     sum_data = len(container)
+    sum_data_asl = sum_data-1
     container = container[:row]
 
-    return render_template("list_data.html", header=header, data=container, row=row, sum_data=sum_data, data_path=data_path)
+    return render_template("list_data.html", header=header, data=container, row=row, sum_data_asl=sum_data_asl, sum_data=sum_data, data_path=data_path)
 
 
 @app.route("/prediksi", methods=["GET"])
@@ -69,9 +70,10 @@ def train():
         row = 100
 
     sum_data = len(container)
+    sum_data_asl = sum_data-1
     container = container[:row]
 
-    return render_template("training.html", sum_data=sum_data, data_path=data_path)
+    return render_template("training.html", sum_data=sum_data, sum_data_asl=sum_data_asl, data_path=data_path)
 
 
 @app.route("/proses_training", methods=["POST"])
@@ -134,8 +136,8 @@ def proses_training():
     MiceImputed.iloc[:, :] = mice_imputer.fit_transform(oversampled)
 
     # Detecting outliers with IQR
-    Q1 = MiceImputed.quantile(0.25)
-    Q3 = MiceImputed.quantile(0.75)
+    Q1 = MiceImputed.quantile(0.3)
+    Q3 = MiceImputed.quantile(0.7)
     IQR = Q3 - Q1
 
     # Removing outliers from the dataset
@@ -161,7 +163,7 @@ def proses_training():
 
     # Split into test and train
     X_train, X_test, y_train, y_test = train_test_split(
-        features, target, test_size=0.25, random_state=12345)
+        features, target, test_size=0.3, random_state=12345)
 
     # Normalize Features
     scaler = StandardScaler()
@@ -177,7 +179,7 @@ def proses_training():
     model_cb, accuracy_cb, roc_auc_cb, coh_kap_cb, tt_cb = run_model(
         model_cb, X_train, y_train, X_test, y_test, verbose=False)
 
-    return render_template("evaluasi.html", accuracy_cb=accuracy_cb, roc_auc_cb=roc_auc_cb, coh_kap_cb=coh_kap_cb, tt_cb=tt_cb, sum_data=len(X_train)+len(X_test))
+    return render_template("evaluasi.html", accuracy_cb=accuracy_cb, roc_auc_cb=roc_auc_cb, coh_kap_cb=coh_kap_cb, tt_cb=tt_cb, sum_data=len(df))
 
 
 @app.route("/evaluasi", methods=["GET"])
@@ -213,30 +215,6 @@ def upload_file():
 
 @app.route("/proses_prediksi", methods=["POST"])
 def proses_prediksi():
-    # contoh input
-    # minTemp = 13.4
-    # maxTemp = 22.9
-    # rainfall = 0.6
-    # evaporation = 1
-    # sunshine = 1
-    # windGustDir = "W"
-    # windGustSpeed = 44
-    # windDir9 = "W"
-    # windDir3 = "WNW"
-    # windSpeed9 = 20
-    # windSpeed3 = 24
-    # humid9 = 71
-    # humid3 = 22
-    # pressure9 = 1007.7
-    # pressure3 = 1007.1
-    # cloud9 = 8
-    # cloud3 = 1
-    # temp9 = 16.9
-    # temp3 = 21.8
-    # rainToday = 0
-    # location = "Albury"
-    # date = "2008-12-01"
-
     minTemp = float(request.form['minTemp'])
     maxTemp = float(request.form['maxTemp'])
     rainfall = float(request.form['rainfall'])
